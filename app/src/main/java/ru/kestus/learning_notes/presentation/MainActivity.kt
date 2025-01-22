@@ -1,11 +1,12 @@
-package ru.kestus.learning_notes
+package ru.kestus.learning_notes.presentation
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.commit
 import ru.kestus.learning_notes.databinding.ActivityMainBinding
+import ru.kestus.learning_notes.presentation.fragment.CategoriesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,5 +23,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        supportFragmentManager.commit {
+            replace(binding.fragmentContainerMain.id, CategoriesFragment.newInstance())
+        }
+
     }
 }

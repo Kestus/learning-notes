@@ -1,4 +1,4 @@
-package ru.kestus.learning_notes.presentation.fragment
+package ru.kestus.learning_notes.presentation.fragments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -26,7 +26,7 @@ class CategoriesAdapter : ListAdapter<CategoryItem, CategoriesAdapter.ViewHolder
 
     class ViewHolder(private val binding: CardCategoryItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CategoryItem) {
-            binding.categoryName.text = "Category: " + item.name
+            binding.categoryName.text = item.name.replaceFirstChar { it.uppercaseChar() }
         }
     }
 

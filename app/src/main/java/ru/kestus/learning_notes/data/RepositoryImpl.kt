@@ -1,7 +1,7 @@
-package ru.kestus.learning_notes.presentation.data
+package ru.kestus.learning_notes.data
 
-import ru.kestus.learning_notes.presentation.domain.CategoryItem
-import ru.kestus.learning_notes.presentation.domain.Repository
+import ru.kestus.learning_notes.domain.CategoryItem
+import ru.kestus.learning_notes.domain.Repository
 
 class RepositoryImpl : Repository {
     override fun getCategories(): List<CategoryItem> {

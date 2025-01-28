@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.kestus.learning_notes.databinding.CardCategoryItemBinding
-import ru.kestus.learning_notes.presentation.domain.CategoryItem
+import ru.kestus.learning_notes.domain.CategoryItem
 
 class CategoriesAdapter : ListAdapter<CategoryItem, CategoriesAdapter.ViewHolder>(CategoryItemDiffCallback()) {
 

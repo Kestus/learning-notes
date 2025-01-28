@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import ru.kestus.learning_notes.databinding.FragmentCategoriesBinding
-import ru.kestus.learning_notes.presentation.data.RepositoryImpl
-import ru.kestus.learning_notes.presentation.domain.Repository
+import ru.kestus.learning_notes.data.RepositoryImpl
+import ru.kestus.learning_notes.domain.Repository
 
 class CategoriesFragment : Fragment() {
 

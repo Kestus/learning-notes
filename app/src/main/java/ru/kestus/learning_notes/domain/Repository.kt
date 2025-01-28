@@ -1,4 +1,4 @@
-package ru.kestus.learning_notes.presentation.domain
+package ru.kestus.learning_notes.domain
 
 interface Repository {
     fun getCategories(): List<CategoryItem>

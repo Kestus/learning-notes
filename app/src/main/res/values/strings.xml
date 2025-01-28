@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">learning-notes</string>
+    <string name="fab_add_category_description">add new category</string>
+    <string name="category_input_hint">Category name</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="create_new_category">CREATE NEW CATEGORY</string>
 </resources>

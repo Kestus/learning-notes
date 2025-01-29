@@ -5,4 +5,5 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="create_new_category">CREATE NEW CATEGORY</string>
+    <string name="submit">Submit</string>
 </resources>

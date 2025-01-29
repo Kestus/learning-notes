@@ -4,20 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import ru.kestus.learning_notes.databinding.DialogCreateCategoryBinding
+import ru.kestus.learning_notes.R
 import ru.kestus.learning_notes.databinding.FragmentCategoriesBinding
 import ru.kestus.learning_notes.domain.CategoryItem
+import ru.kestus.learning_notes.presentation.view.DialogInputText
 
 class CategoriesFragment : Fragment() {
 
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
-
-    private var _dialogBinding: DialogCreateCategoryBinding? = null
-    private val dialogBinding get() = _dialogBinding!!
 
     private val viewModel: CategoriesViewModel by viewModels()
 
@@ -30,7 +27,6 @@ class CategoriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCategoriesBinding.inflate(layoutInflater)
-        _dialogBinding = DialogCreateCategoryBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -41,19 +37,21 @@ class CategoriesFragment : Fragment() {
 
     private fun fabCreateCategory() {
         binding.fabAddCategory.setOnClickListener {
-            val dialog = AlertDialog.Builder(requireContext())
-                .setView(dialogBinding.root)
-                .show()
-            dialogBinding.dialogButtonPositive.setOnClickListener {
-                val newCategory = CategoryItem(
-                    name = dialogBinding.inputCategoryName.text.toString()
-                )
-                viewModel.createNewCategory(newCategory)
-                dialog.dismiss()
-            }
-            dialogBinding.dialogButtonNegative.setOnClickListener {
-                dialog.cancel()
-            }
+            DialogInputText(
+                requireContext(),
+                title = getString(R.string.create_new_category),
+                hint = getString(R.string.category_input_hint)
+            ) {
+                val input = it.input ?: ""
+                if (input.isEmpty()) it.setErrorMessage("Category title should not be empty!")
+                else {
+                    viewModel.createNewCategory(
+                        CategoryItem(
+                            name = input
+                        )
+                    )
+                }
+            }.show()
         }
     }
 
@@ -68,7 +66,6 @@ class CategoriesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        _dialogBinding = null
     }
 
     companion object {
